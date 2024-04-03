@@ -12,7 +12,7 @@ import {
 } from "./eventHandlers";
 import logger from "./logging";
 
-const port = 8000;
+const port = 9999;
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, { path: "/api", cors: { origin: "*" } });
