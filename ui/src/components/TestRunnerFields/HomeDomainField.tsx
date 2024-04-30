@@ -34,7 +34,7 @@ export const HomeDomainField = ({
   setSupportedSeps,
   toml,
 }: HomeDomainFieldProps) => {
-  const [domainStr, setDomainStr] = useState("");
+  const [domainStr, setDomainStr] = useState(formData.homeDomain);
   const updateSupportedSepsState = (tomlObj: { [key: string]: string }) => {
     if (tomlObj) {
       const newSupportedSeps = [1];
@@ -121,6 +121,7 @@ export const HomeDomainField = ({
         <Input
           id="homeDomain"
           label="Home Domain"
+          defaultValue={formData.homeDomain}
           onChange={(e) => handleHomeDomainChange(e.target.value)}
         />
         <TooltipInfoButton>

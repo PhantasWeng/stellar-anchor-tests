@@ -59,7 +59,7 @@ const numUploadedFilesStyle = {
 };
 
 const defaultFormData = {
-  homeDomain: "",
+  homeDomain: "https://stellar.owlting.worker:8081",
   seps: [],
   verbose: true,
 } as FormData;

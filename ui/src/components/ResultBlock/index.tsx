@@ -42,7 +42,7 @@ const CollapsibleLogEl = styled.section`
   border-radius: 0.5rem;
   max-height: ${({ isCollapsed }: { isCollapsed: boolean }) =>
     isCollapsed ? "0rem" : "60rem"};
-  overflow: hidden;
+  overflow: auto;
   transition: all 0.25s ease-in-out;
 `;
 
