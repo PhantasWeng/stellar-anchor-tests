@@ -96,7 +96,7 @@ export const TestBlock: React.FC<{
           </TestGroup>
         </TestInfo>
       </TestBlockRow>
-      {testCase.result && testCase.result.failureMode && (
+      {testCase.result && (
         <ResultBlock result={testCase.result}></ResultBlock>
       )}
     </TestBlockWrapper>
