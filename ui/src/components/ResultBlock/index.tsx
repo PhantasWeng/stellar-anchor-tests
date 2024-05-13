@@ -59,16 +59,23 @@ const HeaderBlock = ({ headerKey, headerVal }: HeaderBlockProps) => (
 
 export const ResultBlock: React.FC<{ result: Result }> = ({ result }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
+  if ((result.networkCalls && result.networkCalls.length) < 1) {
+    return null;
+  }
   return (
     <ResultBlockWrapperEl>
-      <ResultSectionEl>
-        <Eyebrow>Failure Type:</Eyebrow>
-        {result.failureMode}
-      </ResultSectionEl>
-      <ResultSectionEl>
-        <Eyebrow>Description:</Eyebrow>
-        {result.failureMessage}
-      </ResultSectionEl>
+      {result.failureMode && (
+        <ResultSectionEl>
+          <Eyebrow>Failure Type:</Eyebrow>
+          {result.failureMode}
+        </ResultSectionEl>
+      )}
+      {result.failureMessage && (
+        <ResultSectionEl>
+          <Eyebrow>Description:</Eyebrow>
+          {result.failureMessage}
+        </ResultSectionEl>
+      )}
       {result.expected && result.actual && (
         <ResultSectionEl>
           <ResultLineEl>
@@ -95,7 +102,7 @@ export const ResultBlock: React.FC<{ result: Result }> = ({ result }) => {
 
       <CollapseBtnEl>
         <TextLink onClick={() => setIsCollapsed(!isCollapsed)}>
-          {isCollapsed ? "Show" : "Collapse"} full error
+          {isCollapsed ? "Show" : "Collapse"} Network Calls
         </TextLink>
       </CollapseBtnEl>
 
