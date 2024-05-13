@@ -59,7 +59,7 @@ const HeaderBlock = ({ headerKey, headerVal }: HeaderBlockProps) => (
 
 export const ResultBlock: React.FC<{ result: Result }> = ({ result }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
-  if ((result.networkCalls && result.networkCalls.length) < 1) {
+  if ((result.networkCalls && result.networkCalls.length) < 1 && !(result.failureMode || result.failureMessage)) {
     return null;
   }
   return (
